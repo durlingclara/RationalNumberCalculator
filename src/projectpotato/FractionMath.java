@@ -14,10 +14,13 @@ public class FractionMath {
         
         int commonDenominator = f1.getDenominator() * f2.getDenominator();
         
-        Fraction addableFraction1 = new Fraction((f1.getNumerator() * f2.getDenominator()), commonDenominator);
-        Fraction addableFraction2 = new Fraction((f2.getNumerator() * f1.getDenominator()), commonDenominator);
+        Fraction addableFraction1;
+        addableFraction1 = new Fraction((f1.getNumerator() * f2.getDenominator()), commonDenominator);
+        Fraction addableFraction2;
+        addableFraction2 = new Fraction((f2.getNumerator() * f1.getDenominator()), commonDenominator);
         
-        Fraction addedFraction = new Fraction((addableFraction1.getNumerator() + addableFraction2.getNumerator()), commonDenominator);
-        return addedFraction;
+        Fraction addedFraction;
+        addedFraction = new Fraction((addableFraction1.getNumerator() + addableFraction2.getNumerator()), commonDenominator);
+        return Fraction.simplify(addedFraction);
     }
 }

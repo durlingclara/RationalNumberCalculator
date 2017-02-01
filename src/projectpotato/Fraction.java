@@ -29,17 +29,45 @@ public class Fraction {
 
     @Override
     public String toString() {
-        return numerator + "/" + denominator;
+        if(denominator == 1){
+            return numerator + "";
+        }else{
+            return numerator + "/" + denominator;
+        }
     }
     
     public int getDenominator(){
         return this.denominator;
     }
     
-    public Fraction simplify(Fraction f){
+    public static Fraction simplify(Fraction f){
+        int numerator = f.getNumerator();
+        int denominator = f.getDenominator();
+        int smaller;
         
+        if(denominator > numerator){
+            smaller = numerator;
+        }else if(numerator > denominator){
+            smaller = denominator;
+        }else if(numerator == denominator){
+            smaller = 0;
+            numerator = 1;
+            denominator = 1;       
+        }else{
+            smaller = 0;
+        }
         
-        Fraction fSimple = new Fraction();
+        int factor;
+        for(factor = smaller; factor > 0; factor--){
+            int remainderN = numerator % factor;
+            int remainderD = denominator % factor;
+            if(remainderN == 0 && remainderD == 0){
+                numerator = numerator / factor;
+                denominator = denominator / factor;
+            }
+        }
+        
+        Fraction fSimple = new Fraction(numerator, denominator);
         return fSimple;
     }
     

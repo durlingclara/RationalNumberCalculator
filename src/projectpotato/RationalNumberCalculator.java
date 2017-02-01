@@ -5,9 +5,9 @@
  */
 package projectpotato;
 
-/**
- *
- * @author clara.durling
+/* TODO:
+ * ** make capable of adding fractions with pi
+ * ** mixed numbers
  */
 public class RationalNumberCalculator {
 
@@ -16,7 +16,10 @@ public class RationalNumberCalculator {
      */
     public static void main(String[] args) {
         System.out.println("Welcome to the Rational Number calculator.");
+        System.out.println("");
         Input input = new Input();
         input.input();
+        System.out.println("");
+        System.out.println("Thank you for using the Rational Number calculator");
     }   
 }
