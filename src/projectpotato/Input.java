@@ -21,8 +21,7 @@ public class Input {
         String second = SCAN.next();
         Fraction fraction2 = this.parse(second);
         
-        Fraction result = FractionMath.add(fraction1, fraction2);
-        System.out.println(first.toString() + " + " + second.toString() + " = " + result.toString());
+        FractionMath.add(fraction1, fraction2);
     }
     
     private static Fraction parse(String fraction){

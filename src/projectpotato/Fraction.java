@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projectpotato;
+import java.util.Scanner;
 
 /**
  *
@@ -12,8 +13,18 @@ package projectpotato;
 public class Fraction {
     private final int numerator;
     private final int denominator;
+    private final Scanner SCAN = new Scanner(System.in);
     
     public Fraction(int numerator, int denominator){
+        if(denominator == 0){
+            System.out.println("You cannot have a denominator of zero.");
+            while(denominator == 0){
+                System.out.println("Please enter the numerator of the corrected fraction:");
+                numerator = SCAN.nextInt();
+                System.out.println("Now, enter the denominator of the corrected fraction:");
+                denominator = SCAN.nextInt();
+            }
+        }
         this.denominator = denominator;
         this.numerator = numerator;
     }
@@ -23,23 +34,30 @@ public class Fraction {
         this.numerator = 0;
     }
     
+    public Boolean isZero(){
+        return this.numerator == 0;
+    }
+    
     public int getNumerator(){
         return this.numerator;
-    }
-
-    @Override
-    public String toString() {
-        if(denominator == 1){
-            return numerator + "";
-        }else{
-            return numerator + "/" + denominator;
-        }
     }
     
     public int getDenominator(){
         return this.denominator;
     }
+
+    @Override
+    public String toString() {
+        if(this.isZero()){
+            return "0";
+        }else if(this.denominator == 1){
+            return this.numerator + "";
+        }else{
+            return this.numerator + "/" + this.denominator;
+        }
+    }
     
+
     public static Fraction simplify(Fraction f){
         int numerator = f.getNumerator();
         int denominator = f.getDenominator();

@@ -10,7 +10,7 @@ package projectpotato;
  * @author clara.durling
  */
 public class FractionMath {
-    public static Fraction add(Fraction f1, Fraction f2){
+    public static void add(Fraction f1, Fraction f2){
         
         int commonDenominator = f1.getDenominator() * f2.getDenominator();
         
@@ -21,6 +21,17 @@ public class FractionMath {
         
         Fraction addedFraction;
         addedFraction = new Fraction((addableFraction1.getNumerator() + addableFraction2.getNumerator()), commonDenominator);
-        return Fraction.simplify(addedFraction);
+        
+        Output.answerAdd(f1, f2, Fraction.simplify(addedFraction));
+        
+    }
+    
+    public static void multiply(Fraction f1, Fraction f2){
+        int multipliedNumerator = f1.getNumerator() * f2.getNumerator();
+        int multipliedDenominator = f1.getDenominator() * f2.getDenominator();
+        
+        Fraction multipliedFraction = new Fraction(multipliedNumerator, multipliedDenominator);
+        
+        Output.answerMultiply(f1, f2, Fraction.simplify(multipliedFraction));
     }
 }

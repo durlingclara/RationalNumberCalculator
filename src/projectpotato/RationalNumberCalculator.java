@@ -6,8 +6,10 @@
 package projectpotato;
 
 /* TODO:
- * ** make capable of adding fractions with pi
+ * ** make capable of working with fractions with pi
  * ** mixed numbers
+ * ** Add multiply method to fraction math
+ * ** Allow user to choose whether they would like to add or multiply their fractions
  */
 public class RationalNumberCalculator {
 
