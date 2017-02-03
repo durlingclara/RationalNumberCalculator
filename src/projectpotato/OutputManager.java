@@ -26,4 +26,20 @@ public class OutputManager {
         answer = Fraction.simplify(answer);
         System.out.println(f1.toString() + " x " + f2.toString() + " = " + answer.toString());
     }
+    
+    public static String piNumerator(boolean piN){
+        if(piN){
+            return "pi";
+        }else{
+            return "";
+        }
+    }
+    
+    public static String piDenominator(boolean piD){
+        if(piD){
+            return "pi";
+        }else{
+            return "";
+        }
+    }
 }

@@ -15,8 +15,6 @@ public class InputManager {
     public void input(){
         System.out.println("Please enter the first fraction:");
         String first = SCAN.next();
-        boolean piN;
-        boolean piD;
         Fraction fraction1 = InputManager.parse(first);
         
         System.out.println("Please enter the second fraction:");
@@ -28,17 +26,22 @@ public class InputManager {
         String determine = operation.toLowerCase();
         
         if(determine.contains("add")){
-          FractionMath.add(fraction1, fraction2);  
+            FractionMath.add(fraction1, fraction2);  
         }else if(determine.contains("multiply")){
             FractionMath.multiply(fraction1, fraction2);
         }
     }
     
     private static Fraction parse(String fraction){
-        String[] splitFraction = fraction.split("/");
-        int numerator = Integer.parseInt(splitFraction[0]);
-        int denominator = Integer.parseInt(splitFraction[1]);
-        return new Fraction(numerator, denominator, false, false);
+        if(fraction.contains("pi")){
+            Fraction parsed = InputManager.parseForPi(fraction);
+            return parsed;
+        }else{
+            String[] splitFraction = fraction.split("/");
+            int numerator = Integer.parseInt(splitFraction[0]);
+            int denominator = Integer.parseInt(splitFraction[1]);
+            return new Fraction(numerator, denominator, false, false);
+        }
     }
     
     private static Fraction parseForPi(String fraction){
@@ -65,6 +68,11 @@ public class InputManager {
             piD = false;
             numerator = Integer.parseInt(splitFraction[0]);
             denominator = Integer.parseInt(splitFraction[1]);
+        }
+        
+        if(piN && piD){
+            piN = false;
+            piD = false;
         }
         
         return new Fraction(numerator, denominator, piN, piD);

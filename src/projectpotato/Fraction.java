@@ -64,10 +64,12 @@ public class Fraction {
     public String toString() {
         if(this.isZero()){
             return "0";
-        }else if(this.denominator == 1){
-            return this.numerator + "";
+        }else if(this.denominator == 1 && !this.piD){
+            return this.numerator + OutputManager.piNumerator(piN) + "";
+        }else if(this.denominator == 1 && this.piD){
+            return this.numerator + OutputManager.piNumerator(piN) + "/" + "pi";
         }else{
-            return this.numerator + "/" + this.denominator;
+            return this.numerator + OutputManager.piNumerator(piN) + "/" + this.denominator + OutputManager.piDenominator(piD);
         }
     }
     
