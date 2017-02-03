@@ -1,8 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*******************************************************************************
+ * RationalNumberCalculator.java
+ * Clara Durling
+ * 
+ * This class handles the answer output for this program
+ ******************************************************************************/
 package projectpotato;
 
 /* TODO:
@@ -19,7 +20,9 @@ public class RationalNumberCalculator {
     public static void main(String[] args) {
         System.out.println("Welcome to the Rational Number calculator.");
         System.out.println("");
-        Input input = new Input();
+        OutputManager.formatInput();
+        
+        InputManager input = new InputManager();
         input.input();
         System.out.println("");
         System.out.println("Thank you for using the Rational Number calculator");
